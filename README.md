@@ -1,15 +1,18 @@
-# in-class-activities
-## Devlogs
+# GDIM 31 in-class-activities
 
 ## W1
 
-## In the Hierarchy, move the Camera off of the Cat GameObject, so that it’s no longer a child of the Cat. What happens when you run the game now, and why?
+### Activity 1
+
+### In the Hierarchy, move the Camera off of the Cat GameObject, so that it’s no longer a child of the Cat. What happens when you run the game now, and why?
 
 ### The camera will not follow the cat. But, the cat will still move because it has the player components.
 
+### Activity 2
+
 [GDIM 31 W1](https://theokwon.itch.io/w1)
 
-### W2
+## W2
 Create future Devlog sub-headers with the three # symbols, then write your Devlogs below them.
 
 ## Open-Source Assets
