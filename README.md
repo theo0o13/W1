@@ -1,4 +1,4 @@
-# GDIM 31 in-class-activities
+# GDIM 31 In Class Activities
 
 ## W1
 
