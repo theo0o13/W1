@@ -12,6 +12,8 @@ The camera will not follow the cat. But, the cat will still move because it has 
 
 ## W2
 
+### Activity 1
+
 Because they have to change their variables in decimal units, which the rgb shifts slightly. If rgb variables use ints, it would not make the detail in the change and bools won't work because it shows either true or false, and lastly the strings are the text which could not identify the decimal units variable.
 
 
