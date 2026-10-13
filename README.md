@@ -6,9 +6,6 @@
 
 The camera will not follow the cat. But, the cat will still move because it has the player components.
 
-### Activity 2
-
-[GDIM 31 W1](https://theokwon.itch.io/w1)
 
 ## W2
 
