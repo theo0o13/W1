@@ -21,6 +21,28 @@ _bounce variable is an int because it counts the number of ball bouncing, which 
 
 For Step 4 of Part 2 it is important to add the ";" sign at the end to make sure that code could be functioning in the line. Without the sign, the code won't work.
 
+## W3
+
+### Activity 1
+
+1. For the first questions the output is string, because it is the one that tells you with the text. Flag is boolean because it determine either you know or not. Friendship is float because it is the percentage of the friendship.
+
+2. Its input is float because the brigthness of light goes from 0% to 100%. Its output is void, basically nothing. Because it does not need any output.
+
+3. Its input which could be time, would be float as the time could be counted through the integer number, and the output is bool whether you pressed in time or not.
+
+### Activity 2
+
+Component - game character
+Classes - spell that the character uses
+Member variable - stats of the spell 
+Methods - Status effect
+
+### Activity 3
+
+I think balls get extremely bright, because it is multipled by the time it bounces so the color of the ball would change to extremely bright.
+
+
 ## Open-Source Assets
 ### W1
 - Animals: https://assetstore.unity.com/packages/3d/characters/animals/animals-free-animated-low-poly-3d-models-260727 
