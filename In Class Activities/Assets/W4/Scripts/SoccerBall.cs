@@ -21,22 +21,27 @@ public class SoccerBall : MonoBehaviour
     //
     // Also, uncomment and FIX the Debug.Log line.
 
-    //private ?? ??
-    //{
+    private void OnTriggerEnter(Collider other)
+    {
         // finish STEP 1 by uncommenting and fixing the below line!
-        //Debug.Log(SoccerBall detected a collision with a trigger collider!);
+        //Debug.Log("SoccerBall detected a collision with a trigger collider!");
 
         // STEP 2 -------------------------------------------------------------
         // Write an IF STATEMENT to check if the game object we collided with
         //      has the tag "Goal".
         // Refer to the slides for an example of how to check this :)
+        if (other.gameObject.tag.Equals("Goal"))
+        {
+            MadeGoal();
+            _goalVFX.Play();
+        }
         //
         // Then, move your Debug.Log() statement so that it's only called if
         //      the colliding object has the "Goal" tag.
 
 
         // STEP 2 -------------------------------------------------------------
-    //}
+    }
 
     // STEP 1 -----------------------------------------------------------------
 
@@ -45,6 +50,14 @@ public class SoccerBall : MonoBehaviour
     // Next, we're going to make a method named MadeGoal to call if the
     //      SoccerBall collided with an object tagged "Goal".
     // MadeGoal RETURNS NOTHING, and has NO INPUT.
+
+    private void MadeGoal()
+    {
+        Debug.Log("SoccerBall detected a collision with a trigger collider!");
+        countPoint ++;
+        _pointsText.text = countPoint.ToString();
+        time_count = 0f;
+    }
     // 
     // Once you've created MadeGoal,
     //      move your Debug.Log() statement into MadeGoal, and
@@ -56,7 +69,6 @@ public class SoccerBall : MonoBehaviour
         // https://docs.unity3d.com/6000.0/Documentation/ScriptReference/ParticleSystem.Play.html 
         //
         // Call Play on _goalVFX.
-
         // STEP 4 -------------------------------------------------------------
     
     
@@ -70,16 +82,24 @@ public class SoccerBall : MonoBehaviour
     // We want our code to keep track of the number of points the player has,
     //      and change the text on _pointsText when they earn a point by
     //      making a goal.
+    
     //
     // Do your best to code this.
     //
     // You will need to:
     //      1. Create a new member variable to keep track of the points.
     //      2. Use your MadeGoal method to update the points and text.
+    private int countPoint = 0;
+
     //
     // STEP 5 -----------------------------------------------------------------
     
+private float time_count = 0f;
 
+private void Update(){
+    time_count += Time.deltaTime;
+    _timeText.text = time_count.ToString();
+}
     // STEP 6 -----------------------------------------------------------------
     // Like the last step, these flags do NOT show you where to put all of the
     //      code that you need to write.

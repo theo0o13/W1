@@ -42,6 +42,15 @@ Methods - Status effect
 
 I think balls get extremely bright, because it is multipled by the time it bounces so the color of the ball would change to extremely bright.
 
+## W4
+
+### Activity 1
+
+For the collider activity, I've come up with inserting Rigidbodies to Cat and SoccerBall, So they could be hit each other and makes to shoot the SoccerBall. For checking Is Trigger was on Goal. Because whenever the SoccerBall goes through the Goal, it should be triggered and scored. 
+
+
+First of all, one of the problem that I faced was the movement of the cat where if the cat hits with the SoccerBall, it starts to lose its balance and starts to spin. From this situation I have tried to change and think about what could make this not move and be sustained and able to kick the ball better. The solution was simple, as I had to fix its rotation to make it not able to move, whenever it gets hit and moves. 
+
 
 ## Open-Source Assets
 ### W1
