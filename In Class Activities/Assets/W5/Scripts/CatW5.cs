@@ -17,7 +17,7 @@ public class CatW5 : MonoBehaviour
         //      the cat's movement.
         //
         // The Cat should move forwards and backwards with the W and S keys.
-        //
+
         // Use the "static properties" listed under the Vector3 documentation:
         //  https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Vector3.html
         //
@@ -45,7 +45,18 @@ public class CatW5 : MonoBehaviour
 
         Vector3 translation = Vector3.zero;
         
-
+        if (Input.GetKey(KeyCode.W)){
+            translation += Vector3.forward;
+        }
+        if (Input.GetKey(KeyCode.S)){
+            translation += Vector3.back;
+        }
+        
+        if(_flipWSControls){
+            translation *= -1;
+        }
+        
+        transform.Translate(translation * _moveSpeed * Time.deltaTime);
 
         // STEP 1 & 2 ---------------------------------------------------------
 

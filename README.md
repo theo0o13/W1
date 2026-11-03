@@ -51,6 +51,16 @@ For the collider activity, I've come up with inserting Rigidbodies to Cat and So
 
 First of all, one of the problem that I faced was the movement of the cat where if the cat hits with the SoccerBall, it starts to lose its balance and starts to spin. From this situation I have tried to change and think about what could make this not move and be sustained and able to kick the ball better. The solution was simple, as I had to fix its rotation to make it not able to move, whenever it gets hit and moves. 
 
+## W5
+
+### Activity 1
+
+This class would need transform variable of target that target the game object, and NavMeshAgent to control the movement of the deer.
+
+Start() beause this is the class that runs the game. 
+
+
+We need to use the GetCompnent to get the NavMeshAgent component attached to the Deer. We need method that helps deer to walk toward the target GameObject.
 
 ## Open-Source Assets
 ### W1
