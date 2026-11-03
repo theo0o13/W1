@@ -59,7 +59,6 @@ This class would need transform variable of target that target the game object, 
 
 Start() beause this is the class that runs the game. 
 
-
 We need to use the GetCompnent to get the NavMeshAgent component attached to the Deer. We need method that helps deer to walk toward the target GameObject.
 
 ## Open-Source Assets
