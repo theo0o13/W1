@@ -51,7 +51,7 @@ For the collider activity, I've come up with inserting Rigidbodies to Cat and So
 
 First of all, one of the problem that I faced was the movement of the cat where if the cat hits with the SoccerBall, it starts to lose its balance and starts to spin. From this situation I have tried to change and think about what could make this not move and be sustained and able to kick the ball better. The solution was simple, as I had to fix its rotation to make it not able to move, whenever it gets hit and moves. 
 
-## W5
+## W6
 
 ### Activity 1
 
