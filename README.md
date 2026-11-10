@@ -61,6 +61,15 @@ Start() beause this is the class that runs the game.
 
 We need to use the GetCompnent to get the NavMeshAgent component attached to the Deer. We need method that helps deer to walk toward the target GameObject.
 
+## W7
+
+### Activity
+
+1. Member Variables: Need a speed variable to determine how quick the bats move.
+
+2. Methods: Need a Start(); method to declare the speed variable. Need a method that can be turned on and off that determines when the bat should chase the player, and the details about when. This mehtod needs to be in Update() as it needs to constantly be checking when to go to the player.
+
+
 ## Open-Source Assets
 ### W1
 - Animals: https://assetstore.unity.com/packages/3d/characters/animals/animals-free-animated-low-poly-3d-models-260727 

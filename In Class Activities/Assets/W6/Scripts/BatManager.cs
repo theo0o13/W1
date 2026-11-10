@@ -12,14 +12,16 @@ public class BatManager : MonoBehaviour
     // STEP 1 -----------------------------------------------------------------
     // Add a member variable named "_bats" that's an array of BatW6 Components.
     // In the Inspector, add ALL of the bats in the Scene.
-    
+    [SerializeField] private BatW6[] _bats;
+
     // STEP 1 -----------------------------------------------------------------
 
     // STEP 3 -----------------------------------------------------------------
     // Add a member variable named "_messages" that's an array of strings.
     // In the Inspector, add at least a few different messages for the bats to
     //      say when they reach the player.
-    
+    [SerializeField] private string[] _messages;
+
     // STEP 3 -----------------------------------------------------------------
 
     [SerializeField] private float[] _newTextTimers;
@@ -38,7 +40,8 @@ public class BatManager : MonoBehaviour
         // That means the bat at _bats[0] has a timer at _newTextTimers[0],
         //      the bat at _bats[1] has a timer at _newTextTimers[1],
         //      and so on.
-        // _newTextTimers = new [_bats.Length];
+
+         _newTextTimers = new  float[_bats.Length];
         // STEP 6 -------------------------------------------------------------
     }
 
@@ -48,7 +51,10 @@ public class BatManager : MonoBehaviour
         // STEP 7 -------------------------------------------------------------
         // Loop through all of the entries in _newTextTimers, and increase each
         //      timer's value by the amount of time that passed this frame.
-        
+        for (int i = 0; i < _newTextTimers.Length; i++)
+        {
+            _newTextTimers[i] += Time.deltaTime;
+        }
 
         // STEP 7 -------------------------------------------------------------
 
@@ -59,6 +65,24 @@ public class BatManager : MonoBehaviour
         //      IF the distance is less than _interactDistance, 
         //          make the bat chase the player;
         //          otherwise, make the bat STOP chasing the player.
+
+           for (int i = 0; i < _bats.Length; i++)
+        {
+            float _distance = Vector3.Distance(_bats[i].transform.position,_playerTransform.position);
+            if (_distance < _interactDistance)
+            {
+                _bats[i].EnableChase();
+            }
+            else
+            {
+                _bats[i].DisableChase();
+            }
+            if (_distance < _overlapDistance)
+            {
+                CreateReactions(_bats[i]);
+            }
+        }
+    }
         //
         // You will need to check the Vector3 documentation to find a method
         //      to help you with that distance check :)
@@ -68,16 +92,19 @@ public class BatManager : MonoBehaviour
         // Also inside this for loop, if the distance between the bat and the
         //      player is less than _overlapDistance, call CreateReactions()
         //      and pass the bat in as an argument.
-        
-
 
         // STEP 2 -------------------------------------------------------------
-
-    }
+    
+    
 
     // ------------------------------------------------------------------------
+    
     private void CreateReactions(BatW6 bat)
     {
+        int randomIndex = Random.Range(0, _messages.Length);
+        SpawnReactionUI(bat, _messages[randomIndex]);
+
+    }
         // STEP 5 -------------------------------------------------------------
         // The Random.Range() method can be used to give us a random number
         //      between two values.
@@ -92,9 +119,12 @@ public class BatManager : MonoBehaviour
         //
         // The first argument to SpawnReactionUI is same bat in the parameters
         //      of CreateReactions.
+         
+        
         
         // STEP 5 -------------------------------------------------------------
-    }
+    
+
 
     // ------------------------------------------------------------------------
     // This method creates the Text GameObject at the location & with the 
@@ -107,7 +137,7 @@ public class BatManager : MonoBehaviour
         // /* starts the comments, and */ ends it.
         // Simply uncomment the below lines by removing the /* and */ to finish.
 
-        /*
+        
         int index = System.Array.IndexOf(_bats, bat);
         
         GridLayoutGroup layout = bat.GetComponentInChildren<GridLayoutGroup>();
@@ -117,8 +147,8 @@ public class BatManager : MonoBehaviour
             TMP_Text textObj = Instantiate(_reactionUiPrefab, layout.transform);
             textObj.text = message;
         }
-        */
-
-        // STEP 8 -------------------------------------------------------------
     }
+        
+
+        // STEP 8 ------------------------------------------------------------
 }
