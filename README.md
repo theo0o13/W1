@@ -63,11 +63,13 @@ We need to use the GetCompnent to get the NavMeshAgent component attached to the
 
 ## W7
 
-### Activity
+### Activity 2
 
 1. Member Variables: Need a speed variable to determine how quick the bats move.
 
-2. Methods: Need a Start(); method to declare the speed variable. Need a method that can be turned on and off that determines when the bat should chase the player, and the details about when. This mehtod needs to be in Update() as it needs to constantly be checking when to go to the player.
+2. Methods: Need a Start(); method to declare the speed variable. Need a method that can be turned on and off that determines when the bat should chase the player, and the details about when. 
+
+3. This mehtod needs to be in Update() as it needs to constantly be checking when to go to the player.
 
 
 ## Open-Source Assets
