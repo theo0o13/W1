@@ -31,24 +31,13 @@ public class MuskratW7 : MonoBehaviour
     private void MoveOrbitMode()
     {
         // STEP 3 -------------------------------------------------------------
-        // This movement code only runs when the Muskrat is on a bubble.
-        //
-        // Use leftright and _rotationSpeed to rotate the Muskrat again.
-        // But this time, you'll need to convert the muskrat's up vector to
-        //      WORLD SPACE.
-        // This is because the Muskrat's up vector changes direction as it
-        //      walks around a bubble, unlike when it's on a flat ground.
-        //
-        // You will need:
-        // Transform.TransformDirection() https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Transform.TransformDirection.html
-        // Transform.RotateAround () https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Transform.RotateAround.html
-        //
-        // You might want to look below Step 3 for an example :D
-        
         float leftright = Input.GetAxis("Horizontal");
-        
-
-
+        Vector3 worldUp = transform.TransformDirection(Vector3.up);
+        transform.RotateAround(
+            transform.position,
+            worldUp,
+            leftright * _rotationSpeed * Time.deltaTime
+        );
         // STEP 3 -------------------------------------------------------------
 
         float forward = Input.GetAxis("Vertical");
@@ -61,12 +50,10 @@ public class MuskratW7 : MonoBehaviour
 
 
         // STEP 5 -------------------------------------------------------------
-        // Once again, set the "flying" and "running" parameters to animate 
-        //      the Muskrat.
-        // The Muskrat should never play the "flying" animation while on a
-        //      bubble.
+        _animator.SetBool("flying", false);
 
-
+        bool running = Mathf.Abs(leftright) != 0.0f || Mathf.Abs(forward) != 0.0f;
+        _animator.SetBool("running", running);
         // STEP 5 -------------------------------------------------------------
     }
 
@@ -74,41 +61,28 @@ public class MuskratW7 : MonoBehaviour
     private void MoveNormal()
     {
         // STEP 1 -------------------------------------------------------------
-        // This movement code only runs when the Muskrat is on flat ground.
-        //
-        // Use the input stored in leftright to rotate the Muskrat at
-        //      _rotationSpeed speed.
-        // Use the Transform.Rotate method: https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Transform.Rotate.html
-        // and don't forget about Time.deltaTime :D
-        //
-        // Hint: you'll need to multiply leftright by one of the static Vector3 values:
-        //      https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Vector3.html
-        //      like up, left, right, or forward.
-
         float leftright = Input.GetAxis("Horizontal");
-
+        transform.Rotate(leftright * Vector3.up * _rotationSpeed * Time.deltaTime);
         // STEP 1 -------------------------------------------------------------
 
 
         // STEP 2 -------------------------------------------------------------
         float movement = Input.GetAxis("Vertical");
 
-        // This line of code is incorrect. 
-        // Replace it with a different line of code that uses 'movement' to
-        //      move the Muskrat forwards and backwards.
-        transform.position += movement * Vector3.forward * _moveSpeed * Time.deltaTime;
+        // incorrect movement code
+        //transform.position += movement * Vector3.forward * _moveSpeed * Time.deltaTime;
 
+        // correct movement code
+        transform.Translate(movement * Vector3.forward * _moveSpeed * Time.deltaTime);
         // STEP 2 -------------------------------------------------------------
 
 
         // STEP 4 -------------------------------------------------------------
-        // Change the "flying" and "running" parameters on the Animator based
-        //      on the Muskrat's movement to animate the Muskrat.
-        // Use _rigidbody.linearVelocity.
-        // You may also find the absolute value method, Mathf.Abs(), helpful:
-        //      https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Mathf.Abs.html
+        bool flying = Mathf.Abs(_rigidbody.linearVelocity.y) >= 0.2f;
+        _animator.SetBool("flying", flying);
 
-        
+        bool running = _rigidbody.linearVelocity.x != 0.0f;
+        _animator.SetBool("running", running);
         // STEP 4 -------------------------------------------------------------
     }
 

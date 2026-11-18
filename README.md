@@ -63,6 +63,10 @@ We need to use the GetCompnent to get the NavMeshAgent component attached to the
 
 ## W7
 
+### Activity 1
+
+https://docs.google.com/document/d/1R_bArpdyWDk7oLt_Y6eFAooJNsrQ6vkbxEgePz7vyaA/edit?usp=sharing
+
 ### Activity 2
 
 1. Member Variables: Need a speed variable to determine how quick the bats move.
@@ -70,6 +74,12 @@ We need to use the GetCompnent to get the NavMeshAgent component attached to the
 2. Methods: Need a Start(); method to declare the speed variable. Need a method that can be turned on and off that determines when the bat should chase the player, and the details about when. 
 
 3. This mehtod needs to be in Update() as it needs to constantly be checking when to go to the player.
+
+## W8
+
+### Activity 1
+
+The original code had Vector3.forward in place of transform.forward, so the Muskrat moved along a world direction instead of the direction it was facing.
 
 
 ## Open-Source Assets
